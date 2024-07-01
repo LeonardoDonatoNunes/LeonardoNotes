@@ -1,0 +1,26 @@
+project:
+  type: website
+
+website:
+  title: "Leonardo D Nunes"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+  sidebar:
+    style: 'docked'
+    search: true
+    contents: 
+      - section: "Python"
+        contents: 
+          - paginas/data_base/upsert.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

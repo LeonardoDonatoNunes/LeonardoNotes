@@ -7,5 +7,11 @@
   },
   "paginas/data_base/upsert.qmd": {
     "upsert.html": "51db3884"
+  },
+  "paginas/python/upsert_eficiente/upsert.qmd": {
+    "upsert.html": "50d0f104"
+  },
+  "paginas/sql/postgres_introducao.qmd": {
+    "postgres_introducao.html": "78d0efb9"
   }
 }

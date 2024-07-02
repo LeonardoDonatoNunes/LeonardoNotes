@@ -15,8 +15,10 @@ website:
     contents: 
       - section: "Python"
         contents: 
-          - paginas/data_base/upsert.qmd
-
+          - paginas/python/upsert_eficiente/upsert.qmd
+      - section: "SQL"
+        contents:
+          - paginas/sql/postgres_introducao.qmd
 format:
   html:
     theme: cosmo

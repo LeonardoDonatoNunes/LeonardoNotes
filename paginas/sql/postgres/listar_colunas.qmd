@@ -1,0 +1,33 @@
+---
+title: "Listar colunas"
+format:
+  html: 
+    highlight-style: github
+    code-line-numbers: true
+    code-copy: true
+execute:
+  eval: false
+---
+
+## Como listar colunas de uma tabela
+
+
+Para apresentar uma descrição de uma tabela usando uma consulta no _informationm_schema_ basta usar o código:
+```{sql}
+SELECT
+    column_name,
+    data_type,
+    table_catalog,
+    table_name,
+    ordinal_position,
+    is_nullable,
+    table_schema
+FROM
+    information_schema.columns
+WHERE table_name = 'nome_tabela';
+```
+
+Caso precise somente dos nomes das colunas
+```{sql}
+SELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';
+```

@@ -18,7 +18,10 @@ website:
           - paginas/python/upsert_eficiente/upsert.qmd
       - section: "SQL"
         contents:
-          - paginas/sql/postgres_introducao.qmd
+          - section: 'Postgres'
+            contents:
+              - paginas/sql/postgres/introducao.qmd
+              - paginas/sql/postgres/listar_colunas.qmd
 format:
   html:
     theme: cosmo

@@ -13,5 +13,11 @@
   },
   "paginas/sql/postgres_introducao.qmd": {
     "postgres_introducao.html": "78d0efb9"
+  },
+  "paginas/sql/postgres/introducao.qmd": {
+    "introducao.html": "ada162d0"
+  },
+  "paginas/sql/postgres/listar_colunas.qmd": {
+    "listar_colunas.html": "4f00f47c"
   }
 }

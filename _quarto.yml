@@ -1,9 +1,9 @@
 project:
   type: website
   output-dir: docs
-
 website:
   title: "Leonardo D Nunes"
+  favicon: icon.png
   navbar:
     left:
       - href: index.qmd

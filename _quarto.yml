@@ -15,12 +15,15 @@ website:
     tools:
       - icon: linkedin
         href: https://www.linkedin.com/in/leonardo-donato-nunes-754aa5b8/
+        target: _blank
       - icon: github
         menu:
           - text: LeonardoNunes
             href:  https://github.com/LeonardoDonatoNunes
+            target: _blank
           - text: Source Code
             href: https://github.com/LeonardoDonatoNunes/LeonardoNotes
+            target: _blank
   sidebar:
     style: 'docked'
     search: true

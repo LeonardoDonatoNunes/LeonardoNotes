@@ -3,12 +3,24 @@ project:
   output-dir: docs
 website:
   title: "Leonardo D Nunes"
-  favicon: icon.png
+  favicon: logo\logo.svg
+  back-to-top-navigation: true
+  reader-mode: true
   navbar:
+    logo: logo\logo.svg
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+    tools:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/leonardo-donato-nunes-754aa5b8/
+      - icon: github
+        menu:
+          - text: LeonardoNunes
+            href:  https://github.com/LeonardoDonatoNunes
+          - text: Source Code
+            href: https://github.com/LeonardoDonatoNunes/LeonardoNotes
   sidebar:
     style: 'docked'
     search: true
@@ -24,7 +36,9 @@ website:
               - paginas/sql/postgres/listar_colunas.qmd
 format:
   html:
-    theme: cosmo
+    theme:
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
 

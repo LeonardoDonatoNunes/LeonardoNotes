@@ -7,6 +7,7 @@ format:
     code-copy: true
 execute:
   eval: false
+  freeze: true
 ---
 
 ## Como listar colunas de uma tabela
@@ -27,7 +28,8 @@ FROM
 WHERE table_name = 'nome_tabela';
 ```
 
-Caso precise somente dos nomes das colunas
+Caso precise somente dos nomes das colunas. Lembrando que se tem mais de uma tabla com o mesmo nome no banco todos os campos de todas as tabelas serão listados, neste caso pode usar mais um filtro: `table_schema = 'table_schema'`
+
 ```{sql}
 SELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';
 ```

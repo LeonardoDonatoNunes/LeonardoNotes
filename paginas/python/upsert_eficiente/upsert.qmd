@@ -1,5 +1,7 @@
 ---
 title: "Upsert eficiente"
+execute:
+  freeze: auto  
 ---
 
 ## Introdução

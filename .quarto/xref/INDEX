@@ -19,5 +19,8 @@
   },
   "paginas/sql/postgres/listar_colunas.qmd": {
     "listar_colunas.html": "4f00f47c"
+  },
+  "paginas/ferramentas/geral.qmd": {
+    "geral.html": "0ec888ac"
   }
 }

@@ -37,6 +37,9 @@ website:
             contents:
               - paginas/sql/postgres/introducao.qmd
               - paginas/sql/postgres/listar_colunas.qmd
+      - section: Ferramentas
+        contents:
+          - paginas/ferramentas/geral.qmd
 format:
   html:
     theme:

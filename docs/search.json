@@ -50,6 +50,13 @@
     ]
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notas",
+    "section": "",
+    "text": "Criei essa página para armazenar de uma forma organizada e de fácil acesso as minhas notas pessoais. São anotações feitas no dia a dia do meu trabalho como cientista de dados. Estou tentando criar as notas sempre com exemplos reprodutíveis, apesar de nem sempre ser possível.\n\n\n\n Back to top"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -57,11 +64,40 @@
     "text": "About this site\n\n\n\n Back to top"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Notas",
+    "objectID": "paginas/ferramentas/geral.html",
+    "href": "paginas/ferramentas/geral.html",
+    "title": "Ferramentas úteis",
     "section": "",
-    "text": "Criei essa página para armazenar de uma forma organizada e de fácil acesso as minhas notas pessoais. São anotações feitas no dia a dia do meu trabalho como cientista de dados. Estou tentando criar as notas sempre com exemplos reprodutíveis, apesar de nem sempre ser possível.\n\n\n\n Back to top"
+    "text": "Esta página contém links e comentários sobre ferramentas úteis que gosto de utlizar no dia a dia.",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "paginas/ferramentas/geral.html#colorpicker-desktop",
+    "href": "paginas/ferramentas/geral.html#colorpicker-desktop",
+    "title": "Ferramentas úteis",
+    "section": "Colorpicker desktop",
+    "text": "Colorpicker desktop\nColorpicker é um seletor de cor que funciona como um aplicativo. (Precisa ser aberto para usar)\ninstant-eyedropper é um seletor simples e fácil de utilizar.",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
+    "href": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
+    "title": "Ferramentas úteis",
+    "section": "Seletor de paletas de cores",
+    "text": "Seletor de paletas de cores\nColorSpace\nCoolors\nColor-hex",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
   },
   {
     "objectID": "paginas/sql/postgres/introducao.html",

@@ -1,0 +1,28 @@
+---
+title: "Ferramentas úteis"
+format:
+  html: 
+    highlight-style: github
+    code-line-numbers: true
+    code-copy: true
+execute:
+  eval: false
+  freeze: true
+---
+
+
+Esta página contém links e comentários sobre ferramentas úteis que gosto de utlizar no dia a dia.
+
+## Colorpicker desktop
+
+[Colorpicker](https://colorpicker.fr/) é um seletor de cor que funciona como um aplicativo. (Precisa ser aberto para usar)
+
+[instant-eyedropper](http://instant-eyedropper.com/) é um seletor simples e fácil de utilizar.
+
+## Seletor de paletas de cores
+
+[ColorSpace](https://mycolor.space/)
+
+[Coolors](https://coolors.co/)
+
+[Color-hex](https://www.color-hex.com/)

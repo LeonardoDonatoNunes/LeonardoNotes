@@ -91,11 +91,11 @@
     ]
   },
   {
-    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-positive",
-    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-positive",
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-positivo",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-positivo",
     "title": "Lookahead e Lookbhind",
-    "section": "Look behind positive (?<=)",
-    "text": "Look behind positive (?&lt;=)\nEncontra ‘a’ quando ‘a’ vem depois de ‘b’\n\nimport re\nprint(re.findall('(?&lt;=b)a.', 'ba1ca2'))\n\n['a1']",
+    "section": "Look behind positivo (?<=)",
+    "text": "Look behind positivo (?&lt;=)\nEncontra ‘a’ quando ‘a’ vem depois de ‘b’\n\nimport re\nprint(re.findall('(?&lt;=b)a.', 'ba1ca2'))\n\n['a1']",
     "crumbs": [
       "Home",
       "Python",
@@ -104,11 +104,11 @@
     ]
   },
   {
-    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-negative",
-    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-negative",
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-negativo",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-negativo",
     "title": "Lookahead e Lookbhind",
-    "section": "Look behind negative (?<!)",
-    "text": "Look behind negative (?&lt;!)\nEncontra ‘a’ quando ‘a’ vem depois de aguma coisa que não ‘b’\n\nimport re\nprint(re.findall('(?&lt;!b)a.', 'ba1ca2'))\n\n['a2']",
+    "section": "Look behind negativo (?<!)",
+    "text": "Look behind negativo (?&lt;!)\nEncontra ‘a’ quando ‘a’ vem depois de aguma coisa que não ‘b’\n\nimport re\nprint(re.findall('(?&lt;!b)a.', 'ba1ca2'))\n\n['a2']",
     "crumbs": [
       "Home",
       "Python",

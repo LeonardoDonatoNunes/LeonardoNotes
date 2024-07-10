@@ -22,7 +22,7 @@ import re
 print(re.findall('a.(?!b)', 'a1ba2c'))
 ```
 
-## Look behind positive (?<=)
+## Look behind positivo (?<=)
 
 Encontra 'a' quando 'a' vem depois de 'b'
 
@@ -31,7 +31,7 @@ import re
 print(re.findall('(?<=b)a.', 'ba1ca2'))
 ```
 
-## Look behind negative (?<!)
+## Look behind negativo (?<!)
 
 Encontra 'a' quando 'a' vem depois de aguma coisa que não 'b'
 

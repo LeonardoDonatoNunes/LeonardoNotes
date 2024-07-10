@@ -34,6 +34,7 @@
     "crumbs": [
       "Home",
       "Python",
+      "DB",
       "Upsert eficiente"
     ]
   },
@@ -46,7 +47,73 @@
     "crumbs": [
       "Home",
       "Python",
+      "DB",
       "Upsert eficiente"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/lookahead_lookbehind.html",
+    "href": "paginas/python/string/lookahead_lookbehind.html",
+    "title": "Lookahead e Lookbhind",
+    "section": "",
+    "text": "Encontra ‘a’ quando ‘a’ é seguido de ‘b’\n\nimport re\nprint(re.findall('a.(?=b)', 'a1ba2c'))\n\n['a1']",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Lookahead e Lookbhind"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-ahead-positivo",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-ahead-positivo",
+    "title": "Lookahead e Lookbhind",
+    "section": "",
+    "text": "Encontra ‘a’ quando ‘a’ é seguido de ‘b’\n\nimport re\nprint(re.findall('a.(?=b)', 'a1ba2c'))\n\n['a1']",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Lookahead e Lookbhind"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-ahead-negativo",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-ahead-negativo",
+    "title": "Lookahead e Lookbhind",
+    "section": "Look ahead negativo (?!)",
+    "text": "Look ahead negativo (?!)\nEncontra ‘a’ quando ‘a’ é seguido de alguma coisa que não ‘b’\n\nimport re\nprint(re.findall('a.(?!b)', 'a1ba2c'))\n\n['a2']",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Lookahead e Lookbhind"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-positive",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-positive",
+    "title": "Lookahead e Lookbhind",
+    "section": "Look behind positive (?<=)",
+    "text": "Look behind positive (?&lt;=)\nEncontra ‘a’ quando ‘a’ vem depois de ‘b’\n\nimport re\nprint(re.findall('(?&lt;=b)a.', 'ba1ca2'))\n\n['a1']",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Lookahead e Lookbhind"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/lookahead_lookbehind.html#look-behind-negative",
+    "href": "paginas/python/string/lookahead_lookbehind.html#look-behind-negative",
+    "title": "Lookahead e Lookbhind",
+    "section": "Look behind negative (?<!)",
+    "text": "Look behind negative (?&lt;!)\nEncontra ‘a’ quando ‘a’ vem depois de aguma coisa que não ‘b’\n\nimport re\nprint(re.findall('(?&lt;!b)a.', 'ba1ca2'))\n\n['a2']",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Lookahead e Lookbhind"
     ]
   },
   {
@@ -97,6 +164,45 @@
       "Home",
       "Ferramentas",
       "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/remove_white_spaces.html",
+    "href": "paginas/python/string/remove_white_spaces.html",
+    "title": "Remover espaços em branco extras",
+    "section": "",
+    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
+    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
+    "title": "Remover espaços em branco extras",
+    "section": "",
+    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
+    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
+    "title": "Remover espaços em branco extras",
+    "section": "Remover espaços extras (squish)",
+    "text": "Remover espaços extras (squish)\nUma estratégia é usar o split() combinado com o join(). Neste caso será usado o split para separar os strings pelos espaçõs, o que vai manter somente os strings e depois combinar novamente os strings usando o join com um único espaço.\n\ntexto = '  Texto   com     espaços         extras  '\ntexto_sem_espacos_extras = \" \".join(texto.split())\nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços extras: ({texto_sem_espacos_extras})\")\n\nTexto com espaços: (  Texto   com     espaços         extras  )\nTexto sem espaços extras: (Texto com espaços extras)",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
     ]
   },
   {

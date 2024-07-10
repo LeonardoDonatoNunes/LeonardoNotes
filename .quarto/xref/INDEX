@@ -22,5 +22,11 @@
   },
   "paginas/ferramentas/geral.qmd": {
     "geral.html": "0ec888ac"
+  },
+  "paginas/python/string/remove_white_spaces.qmd": {
+    "remove_white_spaces.html": "f2713a54"
+  },
+  "paginas/python/string/lookahead_lookbehind.qmd": {
+    "lookahead_lookbehind.html": "5e490a7b"
   }
 }

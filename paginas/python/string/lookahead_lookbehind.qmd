@@ -1,0 +1,41 @@
+---
+title: "Lookahead e Lookbhind"
+execute:
+  freeze: auto  
+---
+
+## Look ahead positivo (?=)
+
+Encontra 'a' quando 'a' é seguido de 'b'
+
+```{python}
+import re
+print(re.findall('a.(?=b)', 'a1ba2c'))
+```
+
+## Look ahead negativo (?!)
+
+Encontra 'a' quando 'a' é seguido de alguma coisa que não 'b'
+
+```{python}
+import re
+print(re.findall('a.(?!b)', 'a1ba2c'))
+```
+
+## Look behind positive (?<=)
+
+Encontra 'a' quando 'a' vem depois de 'b'
+
+```{python}
+import re
+print(re.findall('(?<=b)a.', 'ba1ca2'))
+```
+
+## Look behind negative (?<!)
+
+Encontra 'a' quando 'a' vem depois de aguma coisa que não 'b'
+
+```{python}
+import re
+print(re.findall('(?<!b)a.', 'ba1ca2'))
+```

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Upsert eficiente – Leonardo D Nunes</title>
+<title>Remover espaços em branco extras – Leonardo D Nunes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Python</li><li class="breadcrumb-item"><a href="../../../paginas/python/upsert_eficiente/upsert.html">DB</a></li><li class="breadcrumb-item"><a href="../../../paginas/python/upsert_eficiente/upsert.html">Upsert eficiente</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Python</li><li class="breadcrumb-item"><a href="../../../paginas/python/string/remove_white_spaces.html">Strings</a></li><li class="breadcrumb-item"><a href="../../../paginas/python/string/remove_white_spaces.html">Remover espaços em branco extras</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -200,16 +200,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">DB</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../paginas/python/upsert_eficiente/upsert.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../paginas/python/upsert_eficiente/upsert.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Upsert eficiente</span></a>
   </div>
 </li>
@@ -217,16 +217,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Strings</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../paginas/python/string/remove_white_spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../paginas/python/string/remove_white_spaces.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Remover espaços em branco extras</span></a>
   </div>
 </li>
@@ -301,21 +301,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução">Introdução</a>
+  <li><a href="#remover-espaços-em-branco-trim" id="toc-remover-espaços-em-branco-trim" class="nav-link active" data-scroll-target="#remover-espaços-em-branco-trim">Remover espaços em branco (trim)</a>
   <ul class="collapse">
-  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">Imports</a></li>
-  <li><a href="#definição-das-funções-upsert" id="toc-definição-das-funções-upsert" class="nav-link" data-scroll-target="#definição-das-funções-upsert">Definição das funções Upsert</a></li>
-  <li><a href="#teste" id="toc-teste" class="nav-link" data-scroll-target="#teste">Teste</a></li>
+  <li><a href="#remover-espaços-de-ambos-os-lados" id="toc-remover-espaços-de-ambos-os-lados" class="nav-link" data-scroll-target="#remover-espaços-de-ambos-os-lados">Remover espaços de ambos os lados</a></li>
+  <li><a href="#remover-espaços-a-direita" id="toc-remover-espaços-a-direita" class="nav-link" data-scroll-target="#remover-espaços-a-direita">Remover espaços a direita</a></li>
+  <li><a href="#remover-espaços-a-esquerda" id="toc-remover-espaços-a-esquerda" class="nav-link" data-scroll-target="#remover-espaços-a-esquerda">Remover espaços a esquerda</a></li>
   </ul></li>
+  <li><a href="#remover-espaços-extras-squish" id="toc-remover-espaços-extras-squish" class="nav-link" data-scroll-target="#remover-espaços-extras-squish">Remover espaços extras (squish)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Python</li><li class="breadcrumb-item"><a href="../../../paginas/python/upsert_eficiente/upsert.html">DB</a></li><li class="breadcrumb-item"><a href="../../../paginas/python/upsert_eficiente/upsert.html">Upsert eficiente</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Python</li><li class="breadcrumb-item"><a href="../../../paginas/python/string/remove_white_spaces.html">Strings</a></li><li class="breadcrumb-item"><a href="../../../paginas/python/string/remove_white_spaces.html">Remover espaços em branco extras</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Upsert eficiente</h1>
+<h1 class="title">Remover espaços em branco extras</h1>
 </div>
 
 
@@ -332,182 +333,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="introdução" class="level2">
-<h2 class="anchored" data-anchor-id="introdução">Introdução</h2>
-<p>Estratégia de <strong>upsert</strong> eficiente para grandes volumes de dados.</p>
-<section id="imports" class="level3">
-<h3 class="anchored" data-anchor-id="imports">Imports</h3>
-<div id="1c4886ff" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, style, loc</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="remover-espaços-em-branco-trim" class="level2">
+<h2 class="anchored" data-anchor-id="remover-espaços-em-branco-trim">Remover espaços em branco (trim)</h2>
+<p>O python possui três funções nativas para remover espaços antes de depois de strings</p>
+<p><code>strip()</code>: Remove espaços antes e depois do texto</p>
+<p><code>rstrip()</code>: Remove espaços somente depois do texto</p>
+<p><code>lstrip()</code>: Remove espaços somente antes do texto</p>
+<section id="remover-espaços-de-ambos-os-lados" class="level3">
+<h3 class="anchored" data-anchor-id="remover-espaços-de-ambos-os-lados">Remover espaços de ambos os lados</h3>
+<div id="9c13c1c9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">'  Teste '</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>texto_sem_espacos <span class="op">=</span> texto.strip() </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Texto com espaços: (</span><span class="sc">{</span>texto<span class="sc">}</span><span class="ss">)</span><span class="ch">\n</span><span class="ss">Texto sem espaços: (</span><span class="sc">{</span>texto_sem_espacos<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Texto com espaços: (  Teste )
+Texto sem espaços: (Teste)</code></pre>
 </div>
-<p>Define uma função para criar dados de exemplo</p>
-<div id="aa63c779" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_fake_data(n_amostra: <span class="bu">int</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n_amostra <span class="op">=</span> math.ceil(n_amostra<span class="op">/</span><span class="dv">10</span>)<span class="op">*</span><span class="dv">10</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'chave_primaria'</span>: <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>, n_amostra <span class="op">+</span> <span class="dv">1</span>)),</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'coluna_2'</span>: [random.randint(<span class="dv">1</span>,<span class="dv">10</span>) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n_amostra)] </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Cria as funções para operar o banco de dados</p>
-<div id="ab075638" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> connect_db():</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">'dados.db'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> conn</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_table_bd(table_name) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> connect_db()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> conn.cursor()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    statement_pad <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="st">        CREATE TABLE </span><span class="sc">{}</span><span class="st"> (</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st">            chave_primaria integer PRIMARY KEY,</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">            coluna_2 integer NULL</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">        )</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="st">    """</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    cursor.execute(<span class="ss">f'DROP TABLE IF EXISTS </span><span class="sc">{</span>table_name<span class="sc">}</span><span class="ss">;'</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    cursor.execute(statement_pad.<span class="bu">format</span>(table_name))</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    conn.commit()</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    conn.close()</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> select_table(table_name: <span class="bu">str</span>) <span class="op">-&gt;</span> pd.DataFrame:</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> connect_db()</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql_query(<span class="ss">f'select * from </span><span class="sc">{</span>table_name<span class="sc">}</span><span class="ss">'</span>, conn)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    conn.close()</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> insert_pandas_df(df: pd.DataFrame, table_name: <span class="bu">str</span>):</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    create_table_bd(table_name)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> connect_db()</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    df.to_sql(table_name, conn, if_exists<span class="op">=</span><span class="st">'append'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Cria um estilo padrão para printar as tabelas</p>
-<div id="834ac272" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gt(df):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    gt <span class="op">=</span> (</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        GT(df)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        .opt_align_table_header(align<span class="op">=</span><span class="st">'center'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        .cols_align(align<span class="op">=</span><span class="st">'center'</span>, columns<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        .tab_options(</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            table_border_top_width<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            table_border_top_color<span class="op">=</span><span class="st">'#000000'</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            table_border_bottom_color<span class="op">=</span><span class="st">'#000000'</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            table_body_border_top_color<span class="op">=</span><span class="st">'#000000'</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    )    </span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> gt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="definição-das-funções-upsert" class="level3">
-<h3 class="anchored" data-anchor-id="definição-das-funções-upsert">Definição das funções Upsert</h3>
-<p>Define uma função para fazer upsert usando interação do python</p>
-<div id="3a78d8de" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> upsert_from_python(df: pd.DataFrame, nome_tabela: <span class="bu">str</span>, where_col: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> connect_db()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    colunas_str <span class="op">=</span> <span class="st">','</span>.join(df.columns)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    where_str <span class="op">=</span> <span class="st">','</span>.join(where_col)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    cols_to_update <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(df.columns) <span class="op">-</span> <span class="bu">set</span>(where_col))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    update_str <span class="op">=</span> <span class="st">', '</span>.join(pd.Series(cols_to_update) <span class="op">+</span>  <span class="st">' = excluded.'</span> <span class="op">+</span>  pd.Series(cols_to_update))</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> conn.cursor()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, row <span class="kw">in</span> df.iterrows():</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        valores <span class="op">=</span> <span class="st">"','"</span>.join(<span class="bu">map</span>(<span class="bu">str</span>, <span class="bu">list</span>(row)))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        upsert_statement <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">            INSERT INTO </span><span class="sc">{</span>nome_tabela<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>colunas_str<span class="sc">}</span><span class="ss">) </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ss">            VALUES ('</span><span class="sc">{</span>valores<span class="sc">}</span><span class="ss">') </span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">            ON CONFLICT (</span><span class="sc">{</span>where_str<span class="sc">}</span><span class="ss">) </span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">            DO UPDATE SET </span><span class="sc">{</span>update_str<span class="sc">}</span><span class="ss">;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">        """</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        cursor.execute(upsert_statement)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    conn.commit()</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="remover-espaços-a-direita" class="level3">
+<h3 class="anchored" data-anchor-id="remover-espaços-a-direita">Remover espaços a direita</h3>
+<div id="4d17df2c" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">'  Teste '</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>texto_sem_espacos <span class="op">=</span> texto.rstrip() </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Texto com espaços: (</span><span class="sc">{</span>texto<span class="sc">}</span><span class="ss">)</span><span class="ch">\n</span><span class="ss">Texto sem espaços a direita: (</span><span class="sc">{</span>texto_sem_espacos<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Texto com espaços: (  Teste )
+Texto sem espaços a direita: (  Teste)</code></pre>
 </div>
-<p>Define uma função para fazer upsert usando uma tabela de saging intermediária</p>
-<div id="0818e949" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> upsert_from_staging(df: pd.DataFrame, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            nome_tabela_intermediaria: <span class="bu">str</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            nome_tabela: <span class="bu">str</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            where_col: <span class="bu">list</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Insere os dados em um dataframe intemediario</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    insert_pandas_df(df, nome_tabela_intermediaria)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    conn <span class="op">=</span> connect_db()</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    colunas_str <span class="op">=</span> <span class="st">','</span>.join(df.columns)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    where_str <span class="op">=</span> <span class="st">','</span>.join(where_col)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    cols_to_update <span class="op">=</span> <span class="bu">list</span>(<span class="bu">set</span>(df.columns) <span class="op">-</span> <span class="bu">set</span>(where_col))</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    update_str <span class="op">=</span> <span class="st">', '</span>.join(pd.Series(cols_to_update) <span class="op">+</span>  <span class="st">' = excluded.'</span> <span class="op">+</span>  pd.Series(cols_to_update))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    upsert_statement <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    INSERT INTO </span><span class="sc">{</span>nome_tabela<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>colunas_str<span class="sc">}</span><span class="ss">) </span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    SELECT * FROM </span><span class="sc">{</span>nome_tabela_intermediaria<span class="sc">}</span><span class="ss"> WHERE true</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    ON CONFLICT (</span><span class="sc">{</span>where_str<span class="sc">}</span><span class="ss">) </span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    DO UPDATE SET </span><span class="sc">{</span>update_str<span class="sc">}</span><span class="ss">;</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    """</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    cursor <span class="op">=</span> conn.cursor()</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    cursor.execute(upsert_statement)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    cursor.close()</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    conn.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="teste" class="level3">
-<h3 class="anchored" data-anchor-id="teste">Teste</h3>
-<p>Cria novos dados para o exemplo</p>
-<div id="7a8ac8f6" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dados <span class="op">=</span> create_fake_data(<span class="dv">100000</span>) <span class="co"># 100 mil registros para inserir na base de dados</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dados_novos<span class="op">=</span>create_fake_data(<span class="dv">1000000</span>) <span class="co"># 1 milhao de registros para fazer upsert na base de dados</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Executa o usert usando interações do Python</p>
-<div id="0c9df0d7" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insere os dados na base deixando a base com 100 mil registros</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>insert_pandas_df(dados, <span class="st">'dados_st1'</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Faz upsert de 1 milhao de registro usando interacao do python</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>upsert_from_python(dados_novos, <span class="st">'dados_st1'</span>, [<span class="st">'chave_primaria'</span>])</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>tempo <span class="op">=</span> <span class="bu">round</span>(time.time() <span class="op">-</span> start_time, <span class="dv">2</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Tempo de execução: </span><span class="sc">{</span>tempo<span class="sc">}</span><span class="ss"> segundos"</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>dados_final <span class="op">=</span> select_table(<span class="st">'dados_st1'</span>)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Volume final de dados: </span><span class="sc">{</span>dados_final<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="remover-espaços-a-esquerda" class="level3">
+<h3 class="anchored" data-anchor-id="remover-espaços-a-esquerda">Remover espaços a esquerda</h3>
+<div id="4ff8ac29" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">'  Teste '</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>texto_sem_espacos <span class="op">=</span> texto.lstrip() </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Texto com espaços: (</span><span class="sc">{</span>texto<span class="sc">}</span><span class="ss">)</span><span class="ch">\n</span><span class="ss">Texto sem espaços a esquerda: (</span><span class="sc">{</span>texto_sem_espacos<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Tempo de execução: 62.13 segundos
-Volume final de dados: 1000000</code></pre>
+<pre><code>Texto com espaços: (  Teste )
+Texto sem espaços a esquerda: (Teste )</code></pre>
 </div>
 </div>
-<p>Executa o upsert usando uma tabela intermediaria</p>
-<div id="46b4f9d0" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Insere os dados na base deixando a base com 100 mil registros</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>insert_pandas_df(dados, <span class="st">'dados_st1'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Faz upsert de 1 milhao de registro usando uma tabela intermediaria</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>upsert_from_staging(dados_novos, <span class="st">'dados'</span>, <span class="st">'dados_st1'</span>, [<span class="st">'chave_primaria'</span>])</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>tempo <span class="op">=</span> <span class="bu">round</span>(time.time() <span class="op">-</span> start_time, <span class="dv">2</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Tempo de execução: </span><span class="sc">{</span>tempo<span class="sc">}</span><span class="ss"> segundos"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>dados_final <span class="op">=</span> select_table(<span class="st">'dados_st1'</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Volume final de dados: </span><span class="sc">{</span>dados_final<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="remover-espaços-extras-squish" class="level2">
+<h2 class="anchored" data-anchor-id="remover-espaços-extras-squish">Remover espaços extras (squish)</h2>
+<p>Uma estratégia é usar o <code>split()</code> combinado com o <code>join()</code>. Neste caso será usado o split para separar os strings pelos espaçõs, o que vai manter somente os strings e depois combinar novamente os strings usando o join com um único espaço.</p>
+<div id="2b5f79ef" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>texto <span class="op">=</span> <span class="st">'  Texto   com     espaços         extras  '</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>texto_sem_espacos_extras <span class="op">=</span> <span class="st">" "</span>.join(texto.split())</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Texto com espaços: (</span><span class="sc">{</span>texto<span class="sc">}</span><span class="ss">)</span><span class="ch">\n</span><span class="ss">Texto sem espaços extras: (</span><span class="sc">{</span>texto_sem_espacos_extras<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Tempo de execução: 1.89 segundos
-Volume final de dados: 1000000</code></pre>
+<pre><code>Texto com espaços: (  Texto   com     espaços         extras  )
+Texto sem espaços extras: (Texto com espaços extras)</code></pre>
 </div>
 </div>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

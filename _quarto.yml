@@ -29,8 +29,14 @@ website:
     search: true
     contents: 
       - section: "Python"
-        contents: 
-          - paginas/python/upsert_eficiente/upsert.qmd
+        contents:
+          - section: 'DB'
+            contents: 
+              - paginas/python/upsert_eficiente/upsert.qmd
+          - section: 'Strings'
+            contents:
+              - paginas/python/string/remove_white_spaces.qmd
+              - paginas/python/string/lookahead_lookbehind.qmd
       - section: "SQL"
         contents:
           - section: 'Postgres'

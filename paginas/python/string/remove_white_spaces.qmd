@@ -1,0 +1,49 @@
+---
+title: "Remover espaços em branco extras"
+execute:
+  freeze: auto  
+---
+
+
+## Remover espaços em branco (trim)
+
+O python possui três funções nativas para remover espaços antes de depois de strings
+
+`strip()`: Remove espaços antes e depois do texto
+
+`rstrip()`: Remove espaços somente depois do texto 
+
+`lstrip()`: Remove espaços somente antes do texto 
+
+### Remover espaços de ambos os lados
+```{python}
+texto = '  Teste '
+texto_sem_espacos = texto.strip() 
+print(f"Texto com espaços: ({texto})\nTexto sem espaços: ({texto_sem_espacos})")
+```
+
+### Remover espaços a direita
+```{python}
+texto = '  Teste '
+texto_sem_espacos = texto.rstrip() 
+print(f"Texto com espaços: ({texto})\nTexto sem espaços a direita: ({texto_sem_espacos})")
+```
+
+### Remover espaços a esquerda
+```{python}
+texto = '  Teste '
+texto_sem_espacos = texto.lstrip() 
+print(f"Texto com espaços: ({texto})\nTexto sem espaços a esquerda: ({texto_sem_espacos})")
+```
+
+
+## Remover espaços extras (squish)
+
+Uma estratégia é usar o `split()` combinado com o `join()`. Neste caso será usado o split para separar os strings pelos espaçõs, o que vai manter somente os strings e depois combinar novamente os strings usando o join com um único espaço.
+
+```{python}
+texto = '  Texto   com     espaços         extras  '
+texto_sem_espacos_extras = " ".join(texto.split())
+print(f"Texto com espaços: ({texto})\nTexto sem espaços extras: ({texto_sem_espacos_extras})")
+
+```

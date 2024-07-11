@@ -1,0 +1,73 @@
+---
+title: "Dados duplicados"
+execute:
+  freeze: auto  
+---
+
+## Como identificar dados duplicados
+
+Suponha que você queira saber se uma tabela possui dados dulicados usando como referencia uma coluna. Neste caso vamos usaro o métodos __duplicated__ que possui dois argumentos:
+
+* __subset__: Lista com o nome da coluna usada para identificar duplicatas. Caso não seja fornecido serão usadas todas as colunas.
+
+* __keep__: Indica qual registro deve ser considerado verdadeiro (qual deve ser mantido). O argumento aceita três valores:
+
+- _first_: Idenfifica somente o primeiro registro como falso;
+
+- _last_: Identifica somente o último registro como falso;
+
+- _False_: Identifica todos os registros como verdadeiro;
+
+Obs. O valor padrão da função é _last__.
+
+Criando dados de exemplo:
+
+```{python}
+import pandas as pd
+dados = pd.DataFrame({
+    'x': [1,2,3],
+    'y':['A', 'A', 'A'],
+})
+print(dados)
+```
+
+Neste caso temos dados duplicados na coluna y
+
+Verificar dados duplicados:
+
+```{python}
+duplicados = dados.duplicated(subset=['y'], keep='first')
+print(duplicados)
+```
+
+```{python}
+duplicados = dados.duplicated(subset=['y'], keep='last')
+print(duplicados)
+```
+
+```{python}
+duplicados = dados.duplicated(subset=['y'], keep=False)
+print(duplicados)
+```
+
+Caso queira verificar rapidamente:
+```{python}
+print(f'Existem dados duplicados: {duplicados.any()}')
+```
+
+Caso precise vizualizar os dados dulicados:
+```{python}
+dados_duplicados = dados[duplicados]
+print(dados_duplicados)
+```
+
+Neste exemplo são exibidos somente os dados que apareceram a partir da segunda vez na tabela
+
+
+## Remover dados duplicados
+
+Caso precise remover os dados duplicados:
+```{python}
+dados_unicos = dados.drop_duplicates(subset=['y'], keep='first')
+print(dados_unicos)
+```

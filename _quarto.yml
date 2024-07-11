@@ -30,9 +30,12 @@ website:
     contents: 
       - section: "Python"
         contents:
+          - section: 'Pandas🐼'
+            contents: 
+              - paginas/python/pandas/dados_duplicados.qmd
           - section: 'DB'
             contents: 
-              - paginas/python/upsert_eficiente/upsert.qmd
+              - paginas/python/sql/upsert_eficiente/upsert.qmd
           - section: 'Strings'
             contents:
               - paginas/python/string/remove_white_spaces.qmd

@@ -28,5 +28,11 @@
   },
   "paginas/python/string/lookahead_lookbehind.qmd": {
     "lookahead_lookbehind.html": "5e490a7b"
+  },
+  "paginas/python/pandas/dados_duplicados.qmd": {
+    "dados_duplicados.html": "d174a1b5"
+  },
+  "paginas/python/sql/upsert_eficiente/upsert.qmd": {
+    "upsert.html": "35da00b2"
   }
 }

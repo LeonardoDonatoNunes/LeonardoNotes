@@ -26,11 +26,50 @@
     ]
   },
   {
-    "objectID": "paginas/python/upsert_eficiente/upsert.html",
-    "href": "paginas/python/upsert_eficiente/upsert.html",
+    "objectID": "paginas/python/string/remove_white_spaces.html",
+    "href": "paginas/python/string/remove_white_spaces.html",
+    "title": "Remover espaços em branco extras",
+    "section": "",
+    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
+    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
+    "title": "Remover espaços em branco extras",
+    "section": "",
+    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
+    ]
+  },
+  {
+    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
+    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
+    "title": "Remover espaços em branco extras",
+    "section": "Remover espaços extras (squish)",
+    "text": "Remover espaços extras (squish)\nUma estratégia é usar o split() combinado com o join(). Neste caso será usado o split para separar os strings pelos espaçõs, o que vai manter somente os strings e depois combinar novamente os strings usando o join com um único espaço.\n\ntexto = '  Texto   com     espaços         extras  '\ntexto_sem_espacos_extras = \" \".join(texto.split())\nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços extras: ({texto_sem_espacos_extras})\")\n\nTexto com espaços: (  Texto   com     espaços         extras  )\nTexto sem espaços extras: (Texto com espaços extras)",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Strings",
+      "Remover espaços em branco extras"
+    ]
+  },
+  {
+    "objectID": "paginas/python/sql/upsert_eficiente/upsert.html",
+    "href": "paginas/python/sql/upsert_eficiente/upsert.html",
     "title": "Upsert eficiente",
     "section": "",
-    "text": "Estratégia de upsert eficiente para grandes volumes de dados.\n\n\n\nimport pandas as pd\nimport sqlite3\nfrom great_tables import GT, style, loc\nimport random\nimport math\nimport time\n\nDefine uma função para criar dados de exemplo\n\ndef create_fake_data(n_amostra: int) -&gt; pd.DataFrame:\n    n_amostra = math.ceil(n_amostra/10)*10 \n    df = pd.DataFrame({\n        'chave_primaria': list(range(1, n_amostra + 1)),\n        'coluna_2': [random.randint(1,10) for x in range(n_amostra)] \n    })\n\n    return df\n\nCria as funções para operar o banco de dados\n\ndef connect_db():\n    conn = sqlite3.connect('dados.db')\n    return conn\n\ndef create_table_bd(table_name) -&gt; None:\n    conn = connect_db()\n    cursor = conn.cursor()\n    statement_pad = \"\"\"\n        CREATE TABLE {} (\n            chave_primaria integer PRIMARY KEY,\n            coluna_2 integer NULL\n        )\n    \"\"\"\n    cursor.execute(f'DROP TABLE IF EXISTS {table_name};')\n    cursor.execute(statement_pad.format(table_name))\n    conn.commit()\n    conn.close()\n        \ndef select_table(table_name: str) -&gt; pd.DataFrame:\n    conn = connect_db()\n    df = pd.read_sql_query(f'select * from {table_name}', conn)\n    conn.close()\n    return df\n\ndef insert_pandas_df(df: pd.DataFrame, table_name: str):\n    create_table_bd(table_name)\n    conn = connect_db()\n    df.to_sql(table_name, conn, if_exists='append', index=False)\n    conn.close()\n\nCria um estilo padrão para printar as tabelas\n\ndef gt(df):\n    gt = (\n        GT(df)\n        .opt_align_table_header(align='center')\n        .cols_align(align='center', columns=None)\n        .tab_options(\n            table_border_top_width=3,\n            table_border_top_color='#000000',\n            table_border_bottom_color='#000000',\n            table_body_border_top_color='#000000')\n    )    \n    return gt\n\n\n\n\nDefine uma função para fazer upsert usando interação do python\n\ndef upsert_from_python(df: pd.DataFrame, nome_tabela: str, where_col: list) -&gt; None:\n    \n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    cursor = conn.cursor()\n    for index, row in df.iterrows():\n        valores = \"','\".join(map(str, list(row)))\n        upsert_statement = f\"\"\"\n            INSERT INTO {nome_tabela} ({colunas_str}) \n            VALUES ('{valores}') \n            ON CONFLICT ({where_str}) \n            DO UPDATE SET {update_str};\n        \"\"\"\n        cursor.execute(upsert_statement)\n    conn.commit()\n    conn.close()\n\nDefine uma função para fazer upsert usando uma tabela de saging intermediária\n\ndef upsert_from_staging(df: pd.DataFrame, \n            nome_tabela_intermediaria: str,\n            nome_tabela: str,\n            where_col: list) -&gt; None:\n    \n\n    # Insere os dados em um dataframe intemediario\n    insert_pandas_df(df, nome_tabela_intermediaria)\n\n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    upsert_statement = f\"\"\"\n    INSERT INTO {nome_tabela} ({colunas_str}) \n    SELECT * FROM {nome_tabela_intermediaria} WHERE true\n    ON CONFLICT ({where_str}) \n    DO UPDATE SET {update_str};\n    \"\"\"\n\n    cursor = conn.cursor()\n    cursor.execute(upsert_statement)\n    cursor.close()\n    conn.commit()\n\n\n\n\nCria novos dados para o exemplo\n\ndados = create_fake_data(100000) # 100 mil registros para inserir na base de dados\ndados_novos=create_fake_data(1000000) # 1 milhao de registros para fazer upsert na base de dados\n\nExecuta o usert usando interações do Python\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando interacao do python\nupsert_from_python(dados_novos, 'dados_st1', ['chave_primaria'])\n\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 62.13 segundos\nVolume final de dados: 1000000\n\n\nExecuta o upsert usando uma tabela intermediaria\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando uma tabela intermediaria\nupsert_from_staging(dados_novos, 'dados', 'dados_st1', ['chave_primaria'])\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 1.89 segundos\nVolume final de dados: 1000000",
+    "text": "Estratégia de upsert eficiente para grandes volumes de dados.\n\n\n\nimport pandas as pd\nimport sqlite3\nfrom great_tables import GT, style, loc\nimport random\nimport math\nimport time\n\nDefine uma função para criar dados de exemplo\n\ndef create_fake_data(n_amostra: int) -&gt; pd.DataFrame:\n    n_amostra = math.ceil(n_amostra/10)*10 \n    df = pd.DataFrame({\n        'chave_primaria': list(range(1, n_amostra + 1)),\n        'coluna_2': [random.randint(1,10) for x in range(n_amostra)] \n    })\n\n    return df\n\nCria as funções para operar o banco de dados\n\ndef connect_db():\n    conn = sqlite3.connect('dados.db')\n    return conn\n\ndef create_table_bd(table_name) -&gt; None:\n    conn = connect_db()\n    cursor = conn.cursor()\n    statement_pad = \"\"\"\n        CREATE TABLE {} (\n            chave_primaria integer PRIMARY KEY,\n            coluna_2 integer NULL\n        )\n    \"\"\"\n    cursor.execute(f'DROP TABLE IF EXISTS {table_name};')\n    cursor.execute(statement_pad.format(table_name))\n    conn.commit()\n    conn.close()\n        \ndef select_table(table_name: str) -&gt; pd.DataFrame:\n    conn = connect_db()\n    df = pd.read_sql_query(f'select * from {table_name}', conn)\n    conn.close()\n    return df\n\ndef insert_pandas_df(df: pd.DataFrame, table_name: str):\n    create_table_bd(table_name)\n    conn = connect_db()\n    df.to_sql(table_name, conn, if_exists='append', index=False)\n    conn.close()\n\nCria um estilo padrão para printar as tabelas\n\ndef gt(df):\n    gt = (\n        GT(df)\n        .opt_align_table_header(align='center')\n        .cols_align(align='center', columns=None)\n        .tab_options(\n            table_border_top_width=3,\n            table_border_top_color='#000000',\n            table_border_bottom_color='#000000',\n            table_body_border_top_color='#000000')\n    )    \n    return gt\n\n\n\n\nDefine uma função para fazer upsert usando interação do python\n\ndef upsert_from_python(df: pd.DataFrame, nome_tabela: str, where_col: list) -&gt; None:\n    \n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    cursor = conn.cursor()\n    for index, row in df.iterrows():\n        valores = \"','\".join(map(str, list(row)))\n        upsert_statement = f\"\"\"\n            INSERT INTO {nome_tabela} ({colunas_str}) \n            VALUES ('{valores}') \n            ON CONFLICT ({where_str}) \n            DO UPDATE SET {update_str};\n        \"\"\"\n        cursor.execute(upsert_statement)\n    conn.commit()\n    conn.close()\n\nDefine uma função para fazer upsert usando uma tabela de saging intermediária\n\ndef upsert_from_staging(df: pd.DataFrame, \n            nome_tabela_intermediaria: str,\n            nome_tabela: str,\n            where_col: list) -&gt; None:\n    \n\n    # Insere os dados em um dataframe intemediario\n    insert_pandas_df(df, nome_tabela_intermediaria)\n\n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    upsert_statement = f\"\"\"\n    INSERT INTO {nome_tabela} ({colunas_str}) \n    SELECT * FROM {nome_tabela_intermediaria} WHERE true\n    ON CONFLICT ({where_str}) \n    DO UPDATE SET {update_str};\n    \"\"\"\n\n    cursor = conn.cursor()\n    cursor.execute(upsert_statement)\n    cursor.close()\n    conn.commit()\n\n\n\n\nCria novos dados para o exemplo\n\ndados = create_fake_data(100000) # 100 mil registros para inserir na base de dados\ndados_novos=create_fake_data(1000000) # 1 milhao de registros para fazer upsert na base de dados\n\nExecuta o usert usando interações do Python\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando interacao do python\nupsert_from_python(dados_novos, 'dados_st1', ['chave_primaria'])\n\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 61.0 segundos\nVolume final de dados: 1000000\n\n\nExecuta o upsert usando uma tabela intermediaria\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando uma tabela intermediaria\nupsert_from_staging(dados_novos, 'dados', 'dados_st1', ['chave_primaria'])\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 2.22 segundos\nVolume final de dados: 1000000",
     "crumbs": [
       "Home",
       "Python",
@@ -39,16 +78,105 @@
     ]
   },
   {
-    "objectID": "paginas/python/upsert_eficiente/upsert.html#introdução",
-    "href": "paginas/python/upsert_eficiente/upsert.html#introdução",
+    "objectID": "paginas/python/sql/upsert_eficiente/upsert.html#introdução",
+    "href": "paginas/python/sql/upsert_eficiente/upsert.html#introdução",
     "title": "Upsert eficiente",
     "section": "",
-    "text": "Estratégia de upsert eficiente para grandes volumes de dados.\n\n\n\nimport pandas as pd\nimport sqlite3\nfrom great_tables import GT, style, loc\nimport random\nimport math\nimport time\n\nDefine uma função para criar dados de exemplo\n\ndef create_fake_data(n_amostra: int) -&gt; pd.DataFrame:\n    n_amostra = math.ceil(n_amostra/10)*10 \n    df = pd.DataFrame({\n        'chave_primaria': list(range(1, n_amostra + 1)),\n        'coluna_2': [random.randint(1,10) for x in range(n_amostra)] \n    })\n\n    return df\n\nCria as funções para operar o banco de dados\n\ndef connect_db():\n    conn = sqlite3.connect('dados.db')\n    return conn\n\ndef create_table_bd(table_name) -&gt; None:\n    conn = connect_db()\n    cursor = conn.cursor()\n    statement_pad = \"\"\"\n        CREATE TABLE {} (\n            chave_primaria integer PRIMARY KEY,\n            coluna_2 integer NULL\n        )\n    \"\"\"\n    cursor.execute(f'DROP TABLE IF EXISTS {table_name};')\n    cursor.execute(statement_pad.format(table_name))\n    conn.commit()\n    conn.close()\n        \ndef select_table(table_name: str) -&gt; pd.DataFrame:\n    conn = connect_db()\n    df = pd.read_sql_query(f'select * from {table_name}', conn)\n    conn.close()\n    return df\n\ndef insert_pandas_df(df: pd.DataFrame, table_name: str):\n    create_table_bd(table_name)\n    conn = connect_db()\n    df.to_sql(table_name, conn, if_exists='append', index=False)\n    conn.close()\n\nCria um estilo padrão para printar as tabelas\n\ndef gt(df):\n    gt = (\n        GT(df)\n        .opt_align_table_header(align='center')\n        .cols_align(align='center', columns=None)\n        .tab_options(\n            table_border_top_width=3,\n            table_border_top_color='#000000',\n            table_border_bottom_color='#000000',\n            table_body_border_top_color='#000000')\n    )    \n    return gt\n\n\n\n\nDefine uma função para fazer upsert usando interação do python\n\ndef upsert_from_python(df: pd.DataFrame, nome_tabela: str, where_col: list) -&gt; None:\n    \n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    cursor = conn.cursor()\n    for index, row in df.iterrows():\n        valores = \"','\".join(map(str, list(row)))\n        upsert_statement = f\"\"\"\n            INSERT INTO {nome_tabela} ({colunas_str}) \n            VALUES ('{valores}') \n            ON CONFLICT ({where_str}) \n            DO UPDATE SET {update_str};\n        \"\"\"\n        cursor.execute(upsert_statement)\n    conn.commit()\n    conn.close()\n\nDefine uma função para fazer upsert usando uma tabela de saging intermediária\n\ndef upsert_from_staging(df: pd.DataFrame, \n            nome_tabela_intermediaria: str,\n            nome_tabela: str,\n            where_col: list) -&gt; None:\n    \n\n    # Insere os dados em um dataframe intemediario\n    insert_pandas_df(df, nome_tabela_intermediaria)\n\n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    upsert_statement = f\"\"\"\n    INSERT INTO {nome_tabela} ({colunas_str}) \n    SELECT * FROM {nome_tabela_intermediaria} WHERE true\n    ON CONFLICT ({where_str}) \n    DO UPDATE SET {update_str};\n    \"\"\"\n\n    cursor = conn.cursor()\n    cursor.execute(upsert_statement)\n    cursor.close()\n    conn.commit()\n\n\n\n\nCria novos dados para o exemplo\n\ndados = create_fake_data(100000) # 100 mil registros para inserir na base de dados\ndados_novos=create_fake_data(1000000) # 1 milhao de registros para fazer upsert na base de dados\n\nExecuta o usert usando interações do Python\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando interacao do python\nupsert_from_python(dados_novos, 'dados_st1', ['chave_primaria'])\n\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 62.13 segundos\nVolume final de dados: 1000000\n\n\nExecuta o upsert usando uma tabela intermediaria\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando uma tabela intermediaria\nupsert_from_staging(dados_novos, 'dados', 'dados_st1', ['chave_primaria'])\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 1.89 segundos\nVolume final de dados: 1000000",
+    "text": "Estratégia de upsert eficiente para grandes volumes de dados.\n\n\n\nimport pandas as pd\nimport sqlite3\nfrom great_tables import GT, style, loc\nimport random\nimport math\nimport time\n\nDefine uma função para criar dados de exemplo\n\ndef create_fake_data(n_amostra: int) -&gt; pd.DataFrame:\n    n_amostra = math.ceil(n_amostra/10)*10 \n    df = pd.DataFrame({\n        'chave_primaria': list(range(1, n_amostra + 1)),\n        'coluna_2': [random.randint(1,10) for x in range(n_amostra)] \n    })\n\n    return df\n\nCria as funções para operar o banco de dados\n\ndef connect_db():\n    conn = sqlite3.connect('dados.db')\n    return conn\n\ndef create_table_bd(table_name) -&gt; None:\n    conn = connect_db()\n    cursor = conn.cursor()\n    statement_pad = \"\"\"\n        CREATE TABLE {} (\n            chave_primaria integer PRIMARY KEY,\n            coluna_2 integer NULL\n        )\n    \"\"\"\n    cursor.execute(f'DROP TABLE IF EXISTS {table_name};')\n    cursor.execute(statement_pad.format(table_name))\n    conn.commit()\n    conn.close()\n        \ndef select_table(table_name: str) -&gt; pd.DataFrame:\n    conn = connect_db()\n    df = pd.read_sql_query(f'select * from {table_name}', conn)\n    conn.close()\n    return df\n\ndef insert_pandas_df(df: pd.DataFrame, table_name: str):\n    create_table_bd(table_name)\n    conn = connect_db()\n    df.to_sql(table_name, conn, if_exists='append', index=False)\n    conn.close()\n\nCria um estilo padrão para printar as tabelas\n\ndef gt(df):\n    gt = (\n        GT(df)\n        .opt_align_table_header(align='center')\n        .cols_align(align='center', columns=None)\n        .tab_options(\n            table_border_top_width=3,\n            table_border_top_color='#000000',\n            table_border_bottom_color='#000000',\n            table_body_border_top_color='#000000')\n    )    \n    return gt\n\n\n\n\nDefine uma função para fazer upsert usando interação do python\n\ndef upsert_from_python(df: pd.DataFrame, nome_tabela: str, where_col: list) -&gt; None:\n    \n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    cursor = conn.cursor()\n    for index, row in df.iterrows():\n        valores = \"','\".join(map(str, list(row)))\n        upsert_statement = f\"\"\"\n            INSERT INTO {nome_tabela} ({colunas_str}) \n            VALUES ('{valores}') \n            ON CONFLICT ({where_str}) \n            DO UPDATE SET {update_str};\n        \"\"\"\n        cursor.execute(upsert_statement)\n    conn.commit()\n    conn.close()\n\nDefine uma função para fazer upsert usando uma tabela de saging intermediária\n\ndef upsert_from_staging(df: pd.DataFrame, \n            nome_tabela_intermediaria: str,\n            nome_tabela: str,\n            where_col: list) -&gt; None:\n    \n\n    # Insere os dados em um dataframe intemediario\n    insert_pandas_df(df, nome_tabela_intermediaria)\n\n    conn = connect_db()\n    colunas_str = ','.join(df.columns)\n    where_str = ','.join(where_col)\n    cols_to_update = list(set(df.columns) - set(where_col))\n    update_str = ', '.join(pd.Series(cols_to_update) +  ' = excluded.' +  pd.Series(cols_to_update))\n\n    upsert_statement = f\"\"\"\n    INSERT INTO {nome_tabela} ({colunas_str}) \n    SELECT * FROM {nome_tabela_intermediaria} WHERE true\n    ON CONFLICT ({where_str}) \n    DO UPDATE SET {update_str};\n    \"\"\"\n\n    cursor = conn.cursor()\n    cursor.execute(upsert_statement)\n    cursor.close()\n    conn.commit()\n\n\n\n\nCria novos dados para o exemplo\n\ndados = create_fake_data(100000) # 100 mil registros para inserir na base de dados\ndados_novos=create_fake_data(1000000) # 1 milhao de registros para fazer upsert na base de dados\n\nExecuta o usert usando interações do Python\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando interacao do python\nupsert_from_python(dados_novos, 'dados_st1', ['chave_primaria'])\n\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 61.0 segundos\nVolume final de dados: 1000000\n\n\nExecuta o upsert usando uma tabela intermediaria\n\n# Insere os dados na base deixando a base com 100 mil registros\ninsert_pandas_df(dados, 'dados_st1')\n\nstart_time = time.time()\n\n#  Faz upsert de 1 milhao de registro usando uma tabela intermediaria\nupsert_from_staging(dados_novos, 'dados', 'dados_st1', ['chave_primaria'])\ntempo = round(time.time() - start_time, 2)\nprint(f\"Tempo de execução: {tempo} segundos\")\n\ndados_final = select_table('dados_st1')\nprint(f\"Volume final de dados: {dados_final.shape[0]}\")\n\nTempo de execução: 2.22 segundos\nVolume final de dados: 1000000",
     "crumbs": [
       "Home",
       "Python",
       "DB",
       "Upsert eficiente"
+    ]
+  },
+  {
+    "objectID": "paginas/ferramentas/geral.html",
+    "href": "paginas/ferramentas/geral.html",
+    "title": "Ferramentas úteis",
+    "section": "",
+    "text": "Esta página contém links e comentários sobre ferramentas úteis que gosto de utlizar no dia a dia.",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "paginas/ferramentas/geral.html#colorpicker-desktop",
+    "href": "paginas/ferramentas/geral.html#colorpicker-desktop",
+    "title": "Ferramentas úteis",
+    "section": "Colorpicker desktop",
+    "text": "Colorpicker desktop\nColorpicker é um seletor de cor que funciona como um aplicativo. (Precisa ser aberto para usar)\ninstant-eyedropper é um seletor simples e fácil de utilizar.",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
+    "href": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
+    "title": "Ferramentas úteis",
+    "section": "Seletor de paletas de cores",
+    "text": "Seletor de paletas de cores\nColorSpace\nCoolors\nColor-hex",
+    "crumbs": [
+      "Home",
+      "Ferramentas",
+      "Ferramentas úteis"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Notas",
+    "section": "",
+    "text": "Criei essa página para armazenar de uma forma organizada e de fácil acesso as minhas notas pessoais. São anotações feitas no dia a dia do meu trabalho como cientista de dados. Estou tentando criar as notas sempre com exemplos reprodutíveis, apesar de nem sempre ser possível.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "paginas/python/pandas/dados_duplicados.html",
+    "href": "paginas/python/pandas/dados_duplicados.html",
+    "title": "Dados duplicados",
+    "section": "",
+    "text": "Suponha que você queira saber se uma tabela possui dados dulicados usando como referencia uma coluna. Neste caso vamos usaro o métodos duplicated que possui dois argumentos:\n\nsubset: Lista com o nome da coluna usada para identificar duplicatas. Caso não seja fornecido serão usadas todas as colunas.\nkeep: Indica qual registro deve ser considerado verdadeiro (qual deve ser mantido). O argumento aceita três valores:\nfirst: Idenfifica somente o primeiro registro como falso;\nlast: Identifica somente o último registro como falso;\nFalse: Identifica todos os registros como verdadeiro;\n\nObs. O valor padrão da função é _last__.\nCriando dados de exemplo:\n\nimport pandas as pd\ndados = pd.DataFrame({\n    'x': [1,2,3],\n    'y':['A', 'A', 'A'],\n})\nprint(dados)\n\n   x  y\n0  1  A\n1  2  A\n2  3  A\n\n\nNeste caso temos dados duplicados na coluna y\nVerificar dados duplicados:\n\nduplicados = dados.duplicated(subset=['y'], keep='first')\nprint(duplicados)\n\n0    False\n1     True\n2     True\ndtype: bool\n\n\n\nduplicados = dados.duplicated(subset=['y'], keep='last')\nprint(duplicados)\n\n0     True\n1     True\n2    False\ndtype: bool\n\n\n\nduplicados = dados.duplicated(subset=['y'], keep=False)\nprint(duplicados)\n\n0    True\n1    True\n2    True\ndtype: bool\n\n\nCaso queira verificar rapidamente:\n\nprint(f'Existem dados duplicados: {duplicados.any()}')\n\nExistem dados duplicados: True\n\n\nCaso precise vizualizar os dados dulicados:\n\ndados_duplicados = dados[duplicados]\nprint(dados_duplicados)\n\n   x  y\n0  1  A\n1  2  A\n2  3  A\n\n\nNeste exemplo são exibidos somente os dados que apareceram a partir da segunda vez na tabela",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Pandas🐼",
+      "Dados duplicados"
+    ]
+  },
+  {
+    "objectID": "paginas/python/pandas/dados_duplicados.html#como-identificar-dados-duplicados",
+    "href": "paginas/python/pandas/dados_duplicados.html#como-identificar-dados-duplicados",
+    "title": "Dados duplicados",
+    "section": "",
+    "text": "Suponha que você queira saber se uma tabela possui dados dulicados usando como referencia uma coluna. Neste caso vamos usaro o métodos duplicated que possui dois argumentos:\n\nsubset: Lista com o nome da coluna usada para identificar duplicatas. Caso não seja fornecido serão usadas todas as colunas.\nkeep: Indica qual registro deve ser considerado verdadeiro (qual deve ser mantido). O argumento aceita três valores:\nfirst: Idenfifica somente o primeiro registro como falso;\nlast: Identifica somente o último registro como falso;\nFalse: Identifica todos os registros como verdadeiro;\n\nObs. O valor padrão da função é _last__.\nCriando dados de exemplo:\n\nimport pandas as pd\ndados = pd.DataFrame({\n    'x': [1,2,3],\n    'y':['A', 'A', 'A'],\n})\nprint(dados)\n\n   x  y\n0  1  A\n1  2  A\n2  3  A\n\n\nNeste caso temos dados duplicados na coluna y\nVerificar dados duplicados:\n\nduplicados = dados.duplicated(subset=['y'], keep='first')\nprint(duplicados)\n\n0    False\n1     True\n2     True\ndtype: bool\n\n\n\nduplicados = dados.duplicated(subset=['y'], keep='last')\nprint(duplicados)\n\n0     True\n1     True\n2    False\ndtype: bool\n\n\n\nduplicados = dados.duplicated(subset=['y'], keep=False)\nprint(duplicados)\n\n0    True\n1    True\n2    True\ndtype: bool\n\n\nCaso queira verificar rapidamente:\n\nprint(f'Existem dados duplicados: {duplicados.any()}')\n\nExistem dados duplicados: True\n\n\nCaso precise vizualizar os dados dulicados:\n\ndados_duplicados = dados[duplicados]\nprint(dados_duplicados)\n\n   x  y\n0  1  A\n1  2  A\n2  3  A\n\n\nNeste exemplo são exibidos somente os dados que apareceram a partir da segunda vez na tabela",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Pandas🐼",
+      "Dados duplicados"
+    ]
+  },
+  {
+    "objectID": "paginas/python/pandas/dados_duplicados.html#remover-dados-duplicados",
+    "href": "paginas/python/pandas/dados_duplicados.html#remover-dados-duplicados",
+    "title": "Dados duplicados",
+    "section": "Remover dados duplicados",
+    "text": "Remover dados duplicados\nCaso precise remover os dados duplicados:\n\ndados_unicos = dados.drop_duplicates(subset=['y'], keep='first')\nprint(dados_unicos)\n\n   x  y\n0  1  A",
+    "crumbs": [
+      "Home",
+      "Python",
+      "Pandas🐼",
+      "Dados duplicados"
     ]
   },
   {
@@ -114,95 +242,6 @@
       "Python",
       "Strings",
       "Lookahead e Lookbhind"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Notas",
-    "section": "",
-    "text": "Criei essa página para armazenar de uma forma organizada e de fácil acesso as minhas notas pessoais. São anotações feitas no dia a dia do meu trabalho como cientista de dados. Estou tentando criar as notas sempre com exemplos reprodutíveis, apesar de nem sempre ser possível.\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "paginas/ferramentas/geral.html",
-    "href": "paginas/ferramentas/geral.html",
-    "title": "Ferramentas úteis",
-    "section": "",
-    "text": "Esta página contém links e comentários sobre ferramentas úteis que gosto de utlizar no dia a dia.",
-    "crumbs": [
-      "Home",
-      "Ferramentas",
-      "Ferramentas úteis"
-    ]
-  },
-  {
-    "objectID": "paginas/ferramentas/geral.html#colorpicker-desktop",
-    "href": "paginas/ferramentas/geral.html#colorpicker-desktop",
-    "title": "Ferramentas úteis",
-    "section": "Colorpicker desktop",
-    "text": "Colorpicker desktop\nColorpicker é um seletor de cor que funciona como um aplicativo. (Precisa ser aberto para usar)\ninstant-eyedropper é um seletor simples e fácil de utilizar.",
-    "crumbs": [
-      "Home",
-      "Ferramentas",
-      "Ferramentas úteis"
-    ]
-  },
-  {
-    "objectID": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
-    "href": "paginas/ferramentas/geral.html#seletor-de-paletas-de-cores",
-    "title": "Ferramentas úteis",
-    "section": "Seletor de paletas de cores",
-    "text": "Seletor de paletas de cores\nColorSpace\nCoolors\nColor-hex",
-    "crumbs": [
-      "Home",
-      "Ferramentas",
-      "Ferramentas úteis"
-    ]
-  },
-  {
-    "objectID": "paginas/python/string/remove_white_spaces.html",
-    "href": "paginas/python/string/remove_white_spaces.html",
-    "title": "Remover espaços em branco extras",
-    "section": "",
-    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
-    "crumbs": [
-      "Home",
-      "Python",
-      "Strings",
-      "Remover espaços em branco extras"
-    ]
-  },
-  {
-    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
-    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-em-branco-trim",
-    "title": "Remover espaços em branco extras",
-    "section": "",
-    "text": "O python possui três funções nativas para remover espaços antes de depois de strings\nstrip(): Remove espaços antes e depois do texto\nrstrip(): Remove espaços somente depois do texto\nlstrip(): Remove espaços somente antes do texto\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.strip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços: (Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.rstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a direita: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a direita: (  Teste)\n\n\n\n\n\n\ntexto = '  Teste '\ntexto_sem_espacos = texto.lstrip() \nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços a esquerda: ({texto_sem_espacos})\")\n\nTexto com espaços: (  Teste )\nTexto sem espaços a esquerda: (Teste )",
-    "crumbs": [
-      "Home",
-      "Python",
-      "Strings",
-      "Remover espaços em branco extras"
-    ]
-  },
-  {
-    "objectID": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
-    "href": "paginas/python/string/remove_white_spaces.html#remover-espaços-extras-squish",
-    "title": "Remover espaços em branco extras",
-    "section": "Remover espaços extras (squish)",
-    "text": "Remover espaços extras (squish)\nUma estratégia é usar o split() combinado com o join(). Neste caso será usado o split para separar os strings pelos espaçõs, o que vai manter somente os strings e depois combinar novamente os strings usando o join com um único espaço.\n\ntexto = '  Texto   com     espaços         extras  '\ntexto_sem_espacos_extras = \" \".join(texto.split())\nprint(f\"Texto com espaços: ({texto})\\nTexto sem espaços extras: ({texto_sem_espacos_extras})\")\n\nTexto com espaços: (  Texto   com     espaços         extras  )\nTexto sem espaços extras: (Texto com espaços extras)",
-    "crumbs": [
-      "Home",
-      "Python",
-      "Strings",
-      "Remover espaços em branco extras"
     ]
   },
   {

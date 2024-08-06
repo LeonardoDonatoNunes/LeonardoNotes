@@ -34,5 +34,11 @@
   },
   "paginas/python/sql/upsert_eficiente/upsert.qmd": {
     "upsert.html": "35da00b2"
+  },
+  "paginas/python/automacao/pyautogui.qmd": {
+    "pyautogui.html": "f4f620ab"
+  },
+  "paginas/python/automacao/pywinauto.qmd": {
+    "pywinauto.html": "82dbb814"
   }
 }

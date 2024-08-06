@@ -1,0 +1,44 @@
+---
+title: "Automação usando o pyautogui"
+execute:
+  freeze: auto  
+  eval: false
+---
+
+
+```{python}
+
+# pip install pillow
+# pip install opencv-python
+import subprocess
+import pyautogui
+import time 
+
+rstudio_path=r"C:\Program Files\RStudio\rstudio.exe"
+subprocess.Popen([rstudio_path])
+
+def locateImage(file_path):
+    try:
+        coords=pyautogui.locateOnScreen(file_path, grayscale=True, confidence=0.9)
+        return coords
+    except:
+        return None
+        
+def encontrar_e_clicar(img_path):
+    while not locateImage(img_path):
+        time.sleep(0.1)
+
+    coords = locateImage(img_path)
+    pyautogui.click(pyautogui.center(coords))
+
+
+encontrar_e_clicar(r'prints\teste.png')
+encontrar_e_clicar(r'prints\new_script.png')
+pyautogui.write("#Teste de digitar no script")
+pyautogui.press('enter')
+pyautogui.write("library(dplyr)")
+pyautogui.press('enter')
+pyautogui.hotkey('ctrl', 'a')
+pyautogui.hotkey('ctrl', 'enter')
+
+```

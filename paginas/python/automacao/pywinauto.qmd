@@ -1,0 +1,19 @@
+---
+title: "Automação usando o pywinauto"
+execute:
+  freeze: auto
+  eval: false 
+---
+
+
+```{python}
+from pywinauto.application import Application
+
+rstudio_path=r"C:\Program Files\RStudio\rstudio.exe"
+app = Application(backend="uia").start(rstudio_path)
+rstudio = app.window(title_re=".*RStudio")
+
+
+rstudio.child_window(title="New File").click_input()
+#rstudio.child_window(title="R Script").click_input()
+```

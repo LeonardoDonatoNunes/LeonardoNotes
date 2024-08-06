@@ -4,14 +4,26 @@
     "href": "paginas/sql/postgres/listar_colunas.html",
     "title": "Listar colunas",
     "section": "",
-    "text": "Para apresentar uma descrição de uma tabela usando uma consulta no informationm_schema basta usar o código:\nSELECT\n    column_name,\n    data_type,\n    table_catalog,\n    table_name,\n    ordinal_position,\n    is_nullable,\n    table_schema\nFROM\n    information_schema.columns\nWHERE table_name = 'nome_tabela';\nCaso precise somente dos nomes das colunas. Lembrando que se tem mais de uma tabla com o mesmo nome no banco todos os campos de todas as tabelas serão listados, neste caso pode usar mais um filtro: table_schema = 'table_schema'\nSELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';"
+    "text": "Para apresentar uma descrição de uma tabela usando uma consulta no informationm_schema basta usar o código:\nSELECT\n    column_name,\n    data_type,\n    table_catalog,\n    table_name,\n    ordinal_position,\n    is_nullable,\n    table_schema\nFROM\n    information_schema.columns\nWHERE table_name = 'nome_tabela';\nCaso precise somente dos nomes das colunas. Lembrando que se tem mais de uma tabla com o mesmo nome no banco todos os campos de todas as tabelas serão listados, neste caso pode usar mais um filtro: table_schema = 'table_schema'\nSELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';",
+    "crumbs": [
+      "Home",
+      "SQL",
+      "Postgres",
+      "Listar colunas"
+    ]
   },
   {
     "objectID": "paginas/sql/postgres/listar_colunas.html#como-listar-colunas-de-uma-tabela",
     "href": "paginas/sql/postgres/listar_colunas.html#como-listar-colunas-de-uma-tabela",
     "title": "Listar colunas",
     "section": "",
-    "text": "Para apresentar uma descrição de uma tabela usando uma consulta no informationm_schema basta usar o código:\nSELECT\n    column_name,\n    data_type,\n    table_catalog,\n    table_name,\n    ordinal_position,\n    is_nullable,\n    table_schema\nFROM\n    information_schema.columns\nWHERE table_name = 'nome_tabela';\nCaso precise somente dos nomes das colunas. Lembrando que se tem mais de uma tabla com o mesmo nome no banco todos os campos de todas as tabelas serão listados, neste caso pode usar mais um filtro: table_schema = 'table_schema'\nSELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';"
+    "text": "Para apresentar uma descrição de uma tabela usando uma consulta no informationm_schema basta usar o código:\nSELECT\n    column_name,\n    data_type,\n    table_catalog,\n    table_name,\n    ordinal_position,\n    is_nullable,\n    table_schema\nFROM\n    information_schema.columns\nWHERE table_name = 'nome_tabela';\nCaso precise somente dos nomes das colunas. Lembrando que se tem mais de uma tabla com o mesmo nome no banco todos os campos de todas as tabelas serão listados, neste caso pode usar mais um filtro: table_schema = 'table_schema'\nSELECT column_name FROM information_schema.columns WHERE table_name = 'nome_tabela';",
+    "crumbs": [
+      "Home",
+      "SQL",
+      "Postgres",
+      "Listar colunas"
+    ]
   },
   {
     "objectID": "paginas/python/string/remove_white_spaces.html",
@@ -86,8 +98,8 @@
     "text": "from pywinauto.application import Application\n\nrstudio_path=r\"C:\\Program Files\\RStudio\\rstudio.exe\"\napp = Application(backend=\"uia\").start(rstudio_path)\nrstudio = app.window(title_re=\".*RStudio\")\n\n\nrstudio.child_window(title=\"New File\").click_input()\n#rstudio.child_window(title=\"R Script\").click_input()\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
-      "SQL",
-      "Postgres",
+      "Python",
+      "Automações",
       "Automação usando o pywinauto"
     ]
   },
@@ -149,8 +161,8 @@
     "text": "# pip install pillow\n# pip install opencv-python\nimport subprocess\nimport pyautogui\nimport time \n\nrstudio_path=r\"C:\\Program Files\\RStudio\\rstudio.exe\"\nsubprocess.Popen([rstudio_path])\n\ndef locateImage(file_path):\n    try:\n        coords=pyautogui.locateOnScreen(file_path, grayscale=True, confidence=0.9)\n        return coords\n    except:\n        return None\n        \ndef encontrar_e_clicar(img_path):\n    while not locateImage(img_path):\n        time.sleep(0.1)\n\n    coords = locateImage(img_path)\n    pyautogui.click(pyautogui.center(coords))\n\n\nencontrar_e_clicar(r'prints\\teste.png')\nencontrar_e_clicar(r'prints\\new_script.png')\npyautogui.write(\"#Teste de digitar no script\")\npyautogui.press('enter')\npyautogui.write(\"library(dplyr)\")\npyautogui.press('enter')\npyautogui.hotkey('ctrl', 'a')\npyautogui.hotkey('ctrl', 'enter')\n\n\n\n\n Back to top",
     "crumbs": [
       "Home",
-      "SQL",
-      "Postgres",
+      "Python",
+      "Automações",
       "Automação usando o pyautogui"
     ]
   },
@@ -263,6 +275,12 @@
     "href": "paginas/sql/postgres/introducao.html",
     "title": "Introdução",
     "section": "",
-    "text": "Back to top"
+    "text": "Back to top",
+    "crumbs": [
+      "Home",
+      "SQL",
+      "Postgres",
+      "Introdução"
+    ]
   }
 ]

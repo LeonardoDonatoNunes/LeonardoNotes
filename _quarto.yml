@@ -42,13 +42,14 @@ website:
               - paginas/python/string/lookahead_lookbehind.qmd
           - section: "Automações"
             contents:
-              - paginas/python/automacao/pya
+              -  paginas/python/automacao/pyautogui.qmd
+              - paginas/python/automacao/pywinauto.qmd
       - section: "SQL"
         contents:
           - section: 'Postgres'
             contents:
-              - paginas/python/automacao/pyautogui.qmd
-              - paginas/python/automacao/pywinauto.qmd
+              - paginas/sql/postgres/introducao.qmd
+              - paginas/sql/postgres/listar_colunas.qmd
       - section: Ferramentas
         contents:
           - paginas/ferramentas/geral.qmd
